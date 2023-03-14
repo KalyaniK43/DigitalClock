@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body{
+            background-size: 100% 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container{
+            text-align: center;
+            position: relative;
+            top: 50px;
+            width: 60vw;
+            height: 60vh;
+            background-color: rgba(128, 128, 128, 0.445);
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px black;
+            font-family: 'Aboreto', cursive;
+font-family: 'Flow Circular', cursive;
+font-family: 'Mynerve', cursive;
+font-family: 'Shadows Into Light', cursive;
+        }
+        #Time{
+            font-size: 60px;
+            background-color: transparent;
+            color: black;
+        }
+        #Date{
+            font-size: 60px;
+            background-color: transparent;
+        }
+        #Day{
+            font-size: 60px;
+            background-color: transparent;
+            letter-spacing: 15px;
+        }
+        #container:hover{
+            color: 35px 35px 0px black,35px -35px 0px hotpink,-35px 35px 0px hotpink;
+        }
+    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Flow+Circular&family=Mynerve&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body onload="clock()" id="a">
+    <div id="container">
+        <h1 id="Time"></h1>
+        <h1 id="Date"></h1>
+        <h1 id="Day"></h1>
+    </div>
+    <script>
+        function clock()
+        {
+            var date=new Date()
+            var hh=date.getHours()
+            var mm=date.getMinutes()
+            var ss=date.getSeconds()
+           // var ms=date.getMilliseconds()
+            var day=date.getDay()
+            var dt=date.getDate()
+            var mo=date.getMonth()
+            var yy=date.getFullYear()
+            if(mo==0)
+            {
+                mo="Jan"
+            }
+            else if(mo==1)
+            {
+                mo="Feb"
+            }
+            else if(mo==2)
+            {
+                mo="Mar"
+            }
+            else if(mo==3)
+            {
+                mo="Apr"
+            }
+            else if(mo==4)
+            {
+                mo="May"
+            }
+            else if(mo==5)
+            {
+                mo="Jun"
+            }
+            else if(mo==6)
+            {
+                mo="Jul"
+            }
+            else if(mo==7)
+            {
+                mo="Aug"
+            }
+            else if(mo==8)
+            {
+                mo="Sep"
+            }
+            else if(mo==9)
+            {
+                mo="Oct"
+            }
+            else if(mo==10)
+            {
+                mo="Nov"
+            }
+            else 
+            {
+                mo="Dec"
+            }
+            switch(day)
+            {
+                case 0:day="Sunday"
+                document.getElementById("a").style.backgroundImage="URL(./sunday.jpg)"
+                break;
+                case 1:day="Monday"
+                document.getElementById("a").style.backgroundImage="URL(./monday.jpg)"
+                break;
+                case 2:day="Tuesday"
+                document.getElementById("a").style.backgroundImage="URL(./tuesday.jpg)"
+                break;
+                case 3:day="Wednesday"
+                document.getElementById("a").style.backgroundImage="URL(./wednesday.jpg)"
+                break;
+                case 4:day="Thrusdy"
+                document.getElementById("a").style.backgroundImage="URL(./thrusday.jpg)"
+                break;
+                case 5:day="Friday"
+                document.getElementById("a").style.backgroundImage="url(./junia.jpg)"
+                break;
+                case 6:day="Saturday"
+                document.getElementById("a").style.backgroundImage="URL(./friday.jpg)"
+                break;
+            }
+            var am_pm="AM"
+            if(hh>=12)
+            {
+                am_pm="PM"
+                if(hh>=13)
+                {
+                    hh-=12;
+                }
+            }
+            if(hh==0)
+            {
+                hh=12;
+            }
+            var finalTime=hh+":"+mm+":"+ss+":"+am_pm
+            document.getElementById("Time").innerHTML=finalTime
+            var finalDate=dt+"/"+mo+"/"+yy
+            document.getElementById("Date").innerHTML=finalDate
+            document.getElementById("Day").innerHTML=day
+           // document.getElementById("MS").innerHTML=ms
+           var timer=setTimeout(function(){clock()},1000)
+        }
+        function greet()
+        {
+            var greet=new Date()
+            var hh=greet.getDate()
+            if(hh>=6 && hh<12)
+            {
+                window.alert("Good Morning")
+            }
+            else  if(hh>=12 && hh<16)
+            {
+                window.alert("Good Afternoon")
+            }
+            else if(hh>=16)
+            {
+                window.alert("Good Evening")
+            }
+            else
+            {
+               window.alert("Good Night")
+            }
+        }
+        greet()
+    </script>
+</body>
+</html>
